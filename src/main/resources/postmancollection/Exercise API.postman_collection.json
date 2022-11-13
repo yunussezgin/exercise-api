@@ -1,0 +1,108 @@
+{
+	"info": {
+		"_postman_id": "232c4afa-6778-4b14-9cde-b0264bdce402",
+		"name": "Exercise API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13383363"
+	},
+	"item": [
+		{
+			"name": "Upload Exercises",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csvFile",
+							"type": "file",
+							"src": "/Users/yunussezgin/Downloads/Back end Senior/exercise.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/exercise/uploadCsvFile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"exercise",
+						"uploadCsvFile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Exercise by Code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/exercise/:code",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"exercise",
+						":code"
+					],
+					"variable": [
+						{
+							"key": "code",
+							"value": "271636001"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List all Exercises",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/exercise",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"exercise"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete all Exercises",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/exercise",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"exercise"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
