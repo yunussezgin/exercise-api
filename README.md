@@ -40,15 +40,19 @@ docker run -p8080:8080 exercise-api:v0.0.1
 
 ## Technical Details
 
-- Exercise Service provides 4 endpoints to manage the exercises. <br>
+- Exercise Service provides 4 endpoints to manage the exercises.
     - `/exercise/uploadCsvFile` <br>
-      Upload a csv file filled with exercises
+      Upload a CSV file filled with exercises
     - `/exercise/:code` <br>
       Get an exercise with code
     - `/exercise` <br>
       Get all exercises
     - `/exercise` <br>
       Delete all exercises
+- All exceptions are managed by ExceptionHandler.
+- API was tested with integration and unit tests.
+- Swagger UI was integrated into the API.
+- DockerFile was added to the project.
 
 ## Postman Collection
 
@@ -68,3 +72,23 @@ docker run -p8080:8080 exercise-api:v0.0.1
 ## Swagger UI URL
 
 http://localhost:8080/api/swagger-ui/index.html
+
+## Example Request & Response
+
+`REQUEST`
+
+GET http://localhost:8080/api/exercise/271636001
+
+`RESPONSE`
+```
+{
+    "source": "ZIB",
+    "codeListCode": "ZIB001",
+    "code": "271636001",
+    "displayValue": "Polsslag regelmatig",
+    "longDescription": "The long description is necessary",
+    "fromDate": "01-01-2019",
+    "toDate": null,
+    "sortingPriority": 1
+}
+```
