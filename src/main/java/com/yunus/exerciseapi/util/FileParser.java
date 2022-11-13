@@ -1,8 +1,8 @@
 package com.yunus.exerciseapi.util;
 
 import com.opencsv.CSVReader;
-import com.opencsv.exceptions.CsvValidationException;
 import com.yunus.exerciseapi.dto.ExerciseDTO;
+import com.yunus.exerciseapi.exception.BadRequestException;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -35,8 +35,8 @@ public class FileParser {
                         .build();
                 exerciseDtoList.add(exerciseDto);
             }
-        } catch (CsvValidationException e) {
-            // TODO Custom exception
+        } catch (Exception ex) {
+            throw new BadRequestException(String.format(Constants.FILE_READING_ERROR, exerciseDtoList.size() + 1) + ex.getMessage());
         }
 
         return exerciseDtoList;

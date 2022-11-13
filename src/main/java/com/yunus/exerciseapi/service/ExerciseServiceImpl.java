@@ -1,7 +1,9 @@
 package com.yunus.exerciseapi.service;
 
 import com.yunus.exerciseapi.entity.Exercise;
+import com.yunus.exerciseapi.exception.NotFoundException;
 import com.yunus.exerciseapi.repository.ExerciseRepository;
+import com.yunus.exerciseapi.util.Constants;
 import com.yunus.exerciseapi.util.FileParser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
@@ -41,8 +43,8 @@ public class ExerciseServiceImpl implements ExerciseService {
 
     @Override
     public Exercise getExerciseByCode(String code) {
-        // TODO add custom exception
-        return exerciseRepository.findByCode(code).get();
+        return exerciseRepository.findByCode(code)
+                .orElseThrow(() -> new NotFoundException(String.format(Constants.NOT_FOUND_EXCEPTION_MESSAGE, code)));
     }
 
     @Override
