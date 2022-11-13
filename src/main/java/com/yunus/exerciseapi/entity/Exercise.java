@@ -40,8 +40,10 @@ public class Exercise {
 
     private String longDescription;
 
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate fromDate;
 
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate toDate;
 
     private Integer sortingPriority;
