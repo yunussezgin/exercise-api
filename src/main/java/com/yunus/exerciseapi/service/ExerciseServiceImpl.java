@@ -31,4 +31,22 @@ public class ExerciseServiceImpl implements ExerciseService {
 
         exerciseRepository.saveAll(exerciseList);
     }
+
+    @Override
+    public List<Exercise> getAllExercises() {
+        List<Exercise> exerciseList = new ArrayList<>();
+        exerciseRepository.findAll().forEach(exerciseList::add);
+        return exerciseList;
+    }
+
+    @Override
+    public Exercise getExerciseByCode(String code) {
+        // TODO add custom exception
+        return exerciseRepository.findByCode(code).get();
+    }
+
+    @Override
+    public void deleteAllExercises() {
+        exerciseRepository.deleteAll();
+    }
 }
